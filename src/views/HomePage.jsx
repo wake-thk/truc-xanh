@@ -214,6 +214,9 @@ const HomePage = () => {
             <input
               placeholder="Nhập số từ 2 đến 30"
               value={lengthCard}
+              type="number"
+              min="2"
+              max="30"
               onChange={(e) => setLengthCard(e.target.value)}
               style={{
                 height: "38px",
