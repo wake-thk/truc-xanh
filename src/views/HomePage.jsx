@@ -20,7 +20,7 @@ const HomePage = () => {
     }
     return true;
   });
-
+  
   const [teamNames, setTeamNames] = useState(() => {
     const savedGameState = localStorage.getItem("memoryGameState");
     if (savedGameState) {
@@ -179,7 +179,7 @@ const HomePage = () => {
     };
     localStorage.setItem("memoryGameState", JSON.stringify(gameState));
 
-  }, [cards, flipped, activeFlipped, scores, currentTeam, teamNames, initializing]);
+  }, [cards, flipped, activeFlipped, scores, currentTeam, teamNames, initializing ]);
   
   const handleDeleteTeam = (team, index) => {
     // Tạo bản sao mới của mảng bằng cách sử dụng spread operator
@@ -239,7 +239,7 @@ const HomePage = () => {
           </div>
           <p style={{ color: "#FFFFFF", fontWeight: "bold", marginBottom: "0.5rem" }}>Tên đội chơi</p>
           {teamNames.map((team, index) => (
-            <div key={`${index}-${team}`} style={{ marginBottom: "10px" }} className="team-wrapper">
+            <div key={`${index}`} style={{ marginBottom: "10px" }} className="team-wrapper">
               <input
                 type="text"
                 value={team}
@@ -259,6 +259,8 @@ const HomePage = () => {
                 className="btn-delete" alt="" onClick={() => handleDeleteTeam(team, index)} />
             </div>
           ))}
+          
+          
           <div>
             <button
               onClick={() => setTeamNames([...teamNames, ""])}
