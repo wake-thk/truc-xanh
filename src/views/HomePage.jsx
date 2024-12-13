@@ -221,7 +221,8 @@ const HomePage = () => {
               style={{
                 height: "38px",
                 padding: "0 10px",
-                outline: "0"
+                outline: "0",
+                width: "140px",
               }}
             />
           </div>
