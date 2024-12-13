@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.fui-basic-input .input {
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #9ca3af;
+  transition: linear 0.2s;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.fui-basic-input {
+  width: 50px;
+  margin: auto;
+}
+
+.background-cover {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: 0.5;
+}
+
+.snow-container {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  z-index: 99999;
+  pointer-events: none;
+  overflow: hidden;
+  top: 0;
+  height: 100%
+}
+
+.snow {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  transform: translate3d(0,-100%,0);
+  animation: snow linear infinite
+}
+
+.snow.foreground {
+  background-image: url(https://itexpress.vn/API/files/img/snow-medium.png);
+  animation-duration: 10s
+}
+
+.snow.foreground.layered {
+  animation-delay: 7.5s
+}
+
+.snow.middleground {
+  background-image: url(https://itexpress.vn/API/files/img/snow-medium.png);
+  animation-duration: 15s
+}
+
+.snow.middleground.layered {
+  animation-delay: 10s
+}
+
+.snow.background {
+  background-image: url(https://itexpress.vn/API/files/img/snow-medium.png);
+  animation-duration: 20s
+}
+
+.snow.background.layered {
+  animation-delay: 12.5s
+}
+
+@keyframes snow {
+  0% {
+      transform: translate3d(0,-100%,0)
+  }
+
+  to {
+      transform: translate3d(5%,100%,0)
+  }
+}
