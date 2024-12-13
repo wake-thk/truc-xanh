@@ -93,3 +93,14 @@ code {
       transform: translate3d(5%,100%,0)
   }
 }
+.team-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.btn-delete {
+  width: 30px;
+  border-radius: 25px;
+  cursor: pointer;
+}

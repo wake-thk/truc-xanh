@@ -180,6 +180,17 @@ const HomePage = () => {
     localStorage.setItem("memoryGameState", JSON.stringify(gameState));
 
   }, [cards, flipped, activeFlipped, scores, currentTeam, teamNames, initializing]);
+  
+  const handleDeleteTeam = (team, index) => {
+    // Tạo bản sao mới của mảng bằng cách sử dụng spread operator
+    const newTeam = [...teamNames];
+    
+    // Xoá phần tử tại vị trí index
+    newTeam.splice(index, 1);
+    
+    // Cập nhật lại state
+    setTeamNames(newTeam);
+  };
 
   if (initializing) {
     return (
@@ -228,7 +239,7 @@ const HomePage = () => {
           </div>
           <p style={{ color: "#FFFFFF", fontWeight: "bold", marginBottom: "0.5rem" }}>Tên đội chơi</p>
           {teamNames.map((team, index) => (
-            <div key={index} style={{ marginBottom: "10px" }}>
+            <div key={`${index}-${team}`} style={{ marginBottom: "10px" }} className="team-wrapper">
               <input
                 type="text"
                 value={team}
@@ -244,6 +255,8 @@ const HomePage = () => {
                   outline: "0"
                 }}
               />
+              <img role="button" src="images/btn-delete.jpg" title="Xoá"
+                className="btn-delete" alt="" onClick={() => handleDeleteTeam(team, index)} />
             </div>
           ))}
           <div>
