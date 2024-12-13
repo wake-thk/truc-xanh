@@ -104,3 +104,21 @@ code {
   border-radius: 25px;
   cursor: pointer;
 }
+
+.ms {
+  position: absolute;
+  padding: 2px 7px;
+  background-color: #a94442;
+  top: 5px;
+  right: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.teams-wrapper {
+  height: 156px;
+  overflow: auto;
+  width: 240px;
+  margin: auto;
+}

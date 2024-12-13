@@ -25,9 +25,9 @@ const HomePage = () => {
     const savedGameState = localStorage.getItem("memoryGameState");
     if (savedGameState) {
       const data = JSON.parse(savedGameState);
-      return data.teamNames.length > 0 ? data.teamNames : [''];
+      return data.teamNames.length > 0 ? data.teamNames : ['', '', ''];
     }
-    return [''];
+    return ['', '', ''];
   });
 
   const [cards, setCards] = useState(() => {
@@ -140,6 +140,7 @@ const HomePage = () => {
         const audio = document.getElementById("audio");
         audio.volume = 1;
         audio.play();
+        setMergeEffect({ first, second });
       } else {
         setMergeEffect({ first, second });
         setTimeout(() => {
@@ -238,32 +239,33 @@ const HomePage = () => {
             />
           </div>
           <p style={{ color: "#FFFFFF", fontWeight: "bold", marginBottom: "0.5rem" }}>Tên đội chơi</p>
-          {teamNames.map((team, index) => (
-            <div key={`${index}`} style={{ marginBottom: "10px" }} className="team-wrapper">
-              <input
-                type="text"
-                value={team}
-                placeholder={`Tên đội ${index + 1}`}
-                onChange={(e) => {
-                  const newTeamNames = [...teamNames];
-                  newTeamNames[index] = e.target.value;
-                  setTeamNames(newTeamNames);
-                }}
-                style={{
-                  height: "38px",
-                  padding: "0 10px",
-                  outline: "0"
-                }}
-              />
-              <img role="button" src="images/btn-delete.jpg" title="Xoá"
-                className="btn-delete" alt="" onClick={() => handleDeleteTeam(team, index)} />
-            </div>
-          ))}
-          
+          <div className="teams-wrapper">
+            {teamNames.map((team, index) => (
+              <div key={`${index}`} style={{ marginBottom: "10px" }} className="team-wrapper">
+                <input
+                  type="text"
+                  value={team}
+                  placeholder={`Tên đội ${teamNames.length - index}`}
+                  onChange={(e) => {
+                    const newTeamNames = [...teamNames];
+                    newTeamNames[index] = e.target.value;
+                    setTeamNames(newTeamNames);
+                  }}
+                  style={{
+                    height: "38px",
+                    padding: "0 10px",
+                    outline: "0"
+                  }}
+                />
+                <img role="button" src="images/btn-delete.jpg" title="Xoá"
+                  className="btn-delete" alt="" onClick={() => handleDeleteTeam(team, index)} />
+              </div>
+            ))}
+          </div>
           
           <div>
             <button
-              onClick={() => setTeamNames([...teamNames, ""])}
+              onClick={() => setTeamNames(["", ...teamNames])}
               style={{
                 color: "#000",
                 fontSize: "18px",
@@ -494,7 +496,8 @@ const HomePage = () => {
                 justifyContent: "center",
                 border: " 5px solid #FFF",
                 borderRadius: "5px",
-                boxShadow: "5px 5px 50px rgba(255,255,255, 1)"
+                boxShadow: "5px 5px 50px rgba(255,255,255, 1)",
+                position: "relative",
               }}
             >
               <div style={{
@@ -509,7 +512,6 @@ const HomePage = () => {
                 opacity: activeFlipped[index] ? "0" : "1"
               }}
                 onClick={() => handleCardClick(index)}>
-
                 {flipped[index] ? (
                   <>
                     <img
@@ -527,7 +529,7 @@ const HomePage = () => {
                   </>
                 ) : ""}
               </div>
-              <span className="image-num" style={{position: "absolute"}}>{ index + 1 }</span>
+              <span className="image-num ms" style={{position: "absolute"}}>{ index + 1 }</span>
             </div>
           ))}
         </div>
