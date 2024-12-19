@@ -390,31 +390,7 @@ const HomePage = () => {
                     }
                 `}
       </style>
-      {round == 1 && (
-        <iframe
-          width="0"
-          height="0"
-          src="https://www.youtube.com/embed/JsPBrVjKAJA?si=-EBtj_G7cmyrx5C9&autoplay=1"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
 
-        </iframe>
-      )}
-      {round == 2 && (
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/LRLq2t5IlKI?si=GG4WxpCrEY4lXKGh&autoplay=1"
-          title="YouTube video player" frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
-
-        </iframe>
-      )}
-
-      <audio id="audio" src="images/tada.wav" style={{ position: "fixed", zIndex: "-11111" }}></audio >
       <button
         style={{
           position: "fixed",
@@ -431,6 +407,7 @@ const HomePage = () => {
       </button>
       <div style={{
         background: "url(images/BackgroupGame.jpg)",
+        backgroundSize: "cover",
         top: '0',
         left: '0',
         width: "100%",
@@ -453,7 +430,7 @@ const HomePage = () => {
               key={index}
               style={{
                 width: "300px",
-                background: "linear-gradient(to bottom, #a8e063, #56ab2f)",
+                background: `${index !== currentTeam ? 'linear-gradient(to bottom, #a8e063, #56ab2f)' : 'red'}`,
                 padding: "10px 30px",
                 color: "#FFFFFF",
                 fontWeight: "bold",
