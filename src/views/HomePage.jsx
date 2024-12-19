@@ -390,18 +390,6 @@ const HomePage = () => {
                     }
                 `}
       </style>
-      <iframe
-        width="0"
-        height="0"
-        src="https://www.youtube.com/embed/clhNFJ_4YUk?autoplay=1&loop=1&playlist=clhNFJ_4YUk"
-        title="Squid Game Remix - Squid Game Remix ( DuyNh Prod Remix ) | Tiktok Songs 2021"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-        style={{ opacity: "0" }}
-      >
-      </iframe>
       {round == 1 && (
         <iframe
           width="0"
