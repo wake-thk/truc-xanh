@@ -137,9 +137,9 @@ const HomePage = () => {
         const newScores = [...scores];
         newScores[currentTeam]++;
         setScores(newScores);
-        const audio = document.getElementById("audio");
-        audio.volume = 1;
-        audio.play();
+        // const audio = document.getElementById("audio");
+        // audio.volume = 1;
+        // audio.play();
         setMergeEffect({ first, second });
       } else {
         setMergeEffect({ first, second });
